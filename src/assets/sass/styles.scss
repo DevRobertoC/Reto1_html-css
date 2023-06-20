@@ -1,0 +1,47 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@mixin container($width, $backg) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: $width;
+  background: $backg;
+}
+
+@mixin font__qr($weight, $size, $padding) {
+  font-family: "Outfit", sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  text-align: center;
+  padding: $padding;
+}
+
+.container {
+  @include container(100%, hsl(212, 45%, 89%));
+  height: 100vh;
+  &__qr {
+    @include container(220px, hsl(0, 0%, 100%));
+    padding: 12px;
+    border-radius: 7px;
+    &__img {
+      max-width: 200px;
+      border-radius: 5px;
+    }
+    &__content__bold {
+      @include font__qr(700, 15px, 8px 0 8px 0);
+    }
+    &__content__cont {
+      @include font__qr(400, 12px, 0 0 15px 0);
+      opacity: 0.5;
+    }
+  }
+}
